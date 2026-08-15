@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
+    <meta
+        name="description"
         content="Digital Memory Capsule - Write a message for your future self.">
 
     <title>Digital Memory Capsule</title>
@@ -21,70 +24,131 @@
         <section class="memory-card">
 
             <header class="header">
+                <div class="icon">🔒</div>
+
                 <h1>Digital Memory Capsule</h1>
-                <p>Write a message for your future self.</p>
+
+                <p>
+                    Write a message for your future self.
+                    Choose a date and let your memory wait.
+                </p>
             </header>
 
-            <div class="form-section">
+            <form id="capsuleForm" class="form-section">
 
                 <!-- Message -->
-                <label for="message">Write Your Message:</label>
+                <div class="form-group">
 
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="8"
-                    maxlength="500"
-                    placeholder="Write something you want your future self to remember..."
-                    required></textarea>
+                    <label for="message">
+                        Write Your Message
+                    </label>
 
-                <div class="character-count">
-                    <span id="charCount">0</span>/500 characters
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="8"
+                        maxlength="500"
+                        placeholder="Write something you want your future self to remember..."
+                        required></textarea>
+
+                    <div
+                        class="character-count"
+                        id="characterCounter">
+
+                        <span id="charCount">0</span>/500 characters
+
+                    </div>
+
                 </div>
 
+
                 <!-- Unlock Date -->
-                <label for="date">Choose Unlock Date:</label>
+                <div class="form-group">
 
-                <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    required>
+                    <label for="date">
+                        Choose Unlock Date
+                    </label>
 
-                <!-- Save Button -->
-                <button
-                    type="button"
-                    onclick="saveCapsule()">
-                    Save Capsule
-                </button>
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        required>
 
-                <!-- Result -->
-                <div id="result" class="result"></div>
+                    <small class="help-text">
+                        🔐 Your capsule will remain locked until this date.
+                    </small>
 
-            </div>
+                </div>
+
+
+                <!-- Buttons -->
+                <div class="button-group">
+
+                    <button
+                        type="submit"
+                        id="saveButton"
+                        class="save-button">
+
+                        🔒 Seal My Capsule
+
+                    </button>
+
+                    <button
+                        type="button"
+                        id="clearButton"
+                        class="clear-button">
+
+                        Clear
+
+                    </button>
+
+                </div>
+
+
+                <!-- Result Message -->
+                <div
+                    id="result"
+                    class="result"
+                    aria-live="polite">
+                </div>
+
+            </form>
+
+
+            <!-- Saved Capsule -->
+            <section
+                id="capsulePreview"
+                class="capsule-preview"
+                hidden>
+
+                <div class="preview-icon">
+                    🔐
+                </div>
+
+                <h2>Capsule Sealed!</h2>
+
+                <p class="preview-message" id="previewMessage"></p>
+
+                <div class="unlock-info">
+
+                    <span>Unlocks on</span>
+
+                    <strong id="unlockDate"></strong>
+
+                </div>
+
+                <div class="countdown">
+                    <span id="countdown">Calculating...</span>
+                </div>
+
+            </section>
 
         </section>
 
     </main>
 
     <script src="script.js"></script>
-
-    <script>
-        // Character counter
-        const messageBox = document.getElementById("message");
-        const charCount = document.getElementById("charCount");
-
-        messageBox.addEventListener("input", function () {
-            charCount.textContent = messageBox.value.length;
-        });
-
-        // Prevent selecting a past date
-        const dateInput = document.getElementById("date");
-
-        const today = new Date().toISOString().split("T")[0];
-
-        dateInput.min = today;
-    </script>
 
 </body>
 
