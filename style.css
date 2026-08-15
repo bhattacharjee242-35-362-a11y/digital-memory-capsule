@@ -1,20 +1,135 @@
 body {
     text-align: center;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background-color: lightblue;
+    margin: 0;
+    padding: 40px;
+}
+
+.container {
+    width: 100%;
+}
+
+.memory-card {
+    width: 500px;
+    max-width: 90%;
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px gray;
+}
+
+h1 {
+    color: darkblue;
+}
+
+.header p {
+    color: gray;
 }
 
 textarea {
-    width: 400px;
+    width: 100%;
     height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 button {
     padding: 10px 30px;
     font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.character-count {
+    text-align: right;
+    color: gray;
+    font-size: 14px;
+}
+
+.help-text {
+    color: gray;
+    font-size: 13px;
+}
+
+.button-group {
+    text-align: center;
+}
+
+.clear-button {
+    background-color: gray;
+    margin-left: 10px;
+}
+
+.clear-button:hover {
+    background-color: darkgray;
 }
 
 #result {
     margin-top: 30px;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.result.success {
+    color: green;
+}
+
+.result.error {
+    color: red;
+}
+
+.result.locked {
+    color: orange;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .memory-card {
+        padding: 20px;
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .clear-button {
+        margin-left: 0;
+    }
 }
